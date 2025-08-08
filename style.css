@@ -1,0 +1,116 @@
+:root {
+    --text-color: #E6E1D9;
+    --card-front-color: #2D3A4B;
+    --card-back-color: #A94350;
+}
+
+body {
+    background: url('assets/img/floresta-forks.webp');
+    background-size: cover;
+    background-position: center;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+#container {
+    display: flex;
+}
+
+.cartao {
+    margin: 1rem 1rem;
+    height: 20rem;
+    flex-grow: 1;
+    flex-basis: calc(33% - 6rem);
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    color: var(--text-color); /* Usando a variável de cor para o texto */
+}
+
+.cartao__conteudo {
+    text-align: center;
+    height: 100%;
+    background-color: var(--card-front-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.cartao__conteudo h3 {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+    text-align: left;
+    padding: 0.5rem;
+    position: absolute;
+    margin: 0.6rem;
+    border-radius: 0.6rem;
+    font-size: 1vw;
+    width: fit-content;
+}
+
+.cartao__conteudo__pergunta p {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.2vw;
+    padding: 1rem 0;
+}
+
+.cartao__conteudo__resposta p {
+    color: var(--card-back-color);
+    font-weight: 700;
+    font-size: 1.2vw;
+    padding: 1rem 0;
+}
+/* Efeito de rotação ao passar o mouse */
+.cartao:hover .cartao__conteudo {
+    transform: rotateY(180deg);
+}
+
+/* Propriedades para o efeito 3D e transição */
+.cartao__conteudo {
+    background-color: var(--card-front-color);
+    text-align: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms ease-in-out;
+    /* Centralizando o conteúdo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Escondendo a parte de trás dos elementos */
+.cartao__conteudo h3,
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+}
+
+/* Revelando a resposta */
+.cartao__conteudo__resposta {
+    transform: rotateY(180deg);
+}
+
+/* Posicionamento dos textos de pergunta e resposta */
+.cartao__conteudo__pergunta,
+.cartao__conteudo__resposta {
+    backface-visibility: hidden;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/* Estilização final dos parágrafos dentro dos cartões */
+.cartao__conteudo p {
+    margin-top: 4rem; /* Garante que o texto fique bem posicionado */
+    padding: 2rem;
+    font-size: 1.2vw;
+}
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4rem;
+    gap: 3rem;
+}
